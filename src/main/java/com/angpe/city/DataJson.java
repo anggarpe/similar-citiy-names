@@ -20,14 +20,19 @@ public class DataJson {
         for (Object o : list) {
             if (o instanceof Map) {
                 Map<String, Object> map = (Map<String, Object>) o;
-                    if (map.get("country").equals("ID")){
-                         map.forEach((key, value) -> {
-                             if(key.equals("name"))  cities.add(value.toString());
-                         });
-                    }
-
+                filterByCountry(map, "country", "ID", cities);
             }
         }
         return cities;
+    }
+
+    public void filterByCountry(Map<String, Object> map, String country, String id, List<String> cities){
+        if (map.get(country).equals(id)){
+            map.forEach((key, value) -> addCityNameToList(key, value, cities));
+        }
+    }
+
+    public void addCityNameToList(String key, Object value, List<String> cities){
+        if(key.equals("name"))  cities.add(value.toString());
     }
 }
