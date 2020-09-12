@@ -6,11 +6,6 @@ import info.debatty.java.stringsimilarity.Levenshtein;
 
 public class Similarity {
 
-
-
-    /**
-     * Calculates the similarity (a number within 0 and 1) between two strings.
-     */
     public static double Similar(String s1, String s2) {
         JaroWinkler jw = new JaroWinkler();
         Damerau d = new Damerau();
@@ -22,13 +17,13 @@ public class Similarity {
         }
         int longerLength = longer.length();
         if (longerLength == 0) return 1.0; /* both strings are zero length */
+
         return (longerLength - EditDistance(longer, shorter)) / (double) longerLength;
 //        return (longerLength - l.distance(longer, shorter)) / (double) longerLength;
 
     }
 
     // Example implementation of the Levenshtein Edit Distance
-    // See http://r...content-available-to-author-only...e.org/wiki/Levenshtein_distance#Java
     public static int EditDistance(String s1, String s2) {
         s1 = s1.toLowerCase();//longer
         s2 = s2.toLowerCase();//shorter
