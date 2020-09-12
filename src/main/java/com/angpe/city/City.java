@@ -24,7 +24,6 @@ public class City {
                 addSimilarCities(indexValue, city, cities);
             }
             System.out.println(cities.toString());
-            check();
             cities.clear();
 
         }while (true);
@@ -41,18 +40,5 @@ public class City {
     }
     public static boolean checkIndex(double index){
         return index >= 0.56;
-    }
-
-    public static void check(){
-        String s1 = "jakarta";
-        String s2 = "jakarta";
-        int lastValue = 2;
-        int newValue = 3;
-        int[] costs = {1, 2, 3, 4};
-        int firstIndex = 1;
-        int secIndex = 3;
-
-        System.out.println(Similarity.swapValue(s1,s2,lastValue, newValue, costs,firstIndex,secIndex) + " swap");
-        System.out.println(Similarity.setLastValue(s1,s2,lastValue, costs,firstIndex,secIndex)+ " set last");
     }
 }
